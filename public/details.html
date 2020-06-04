@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>HTML</title>
+
+    <!-- HTML -->
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="logo-box">
+        <h2 class="logo">Pheity</h2>
+      </div>
+      <form class="search-box">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Find any appointment by name"
+        />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+      <a class="profile-link">
+        <p class="profile-name">Fatai</p>
+        <img class="profile-img" src="images/profile.jpg" alt="Fatai" />
+      </a>
+
+      <a class="logout-btn" href="#">Logout</a>
+    </header>
+    <section class="sidebar">
+      <div class="admin-side">
+        <h3 class="dashboard-head">
+          appointment
+        </h3>
+        <div class="links">
+          <a class="dashboard-links active" href="#">
+            All
+          </a>
+          <a class="dashboard-links" href="#">
+            Approved
+          </a>
+          <a class="dashboard-links" href="#">
+            Declined
+          </a>
+          <a class="dashboard-links" href="#">
+            Pending
+          </a>
+        </div>
+      </div>
+      <div class="main-admin">
+        <h3 class="dashboard-head">
+          User Management
+        </h3>
+
+        <div class="links">
+          <a class="dashboard-links" href="#">
+            Manage Users
+          </a>
+          <a class="dashboard-links" href="#">
+            Create New User
+          </a>
+        </div>
+      </div>
+
+      <p class="copy">
+        &copy; Pheity
+        <script type="text/javascript" charset="utf-8">
+          const date = new Date();
+          const year = date.getFullYear();
+          document.write(year);
+        </script>
+      </p>
+    </section>
+    <section class="content">
+      <h5 class="content-head">All Appointment</h5>
+
+      <div class="app-details">
+        <div class="details-head">
+          <img class="details-img" src="images/man.jpeg" alt="Fatai" />
+          <div class="details-info">
+            <h3 class="info-name">Ramon Rasheed Ishola</h3>
+            <p class="info-phone">08024283327</p>
+            <p class="info-email">ramonrash2@gmail.com</p>
+          </div>
+        </div>
+        <div class="details-body">
+          <h4 class="body-head">
+            Reason to meet
+          </h4>
+          <p class="body-para">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+            ullamcorper lectus ante, a sagittis est malesuada in. Maecenas
+            luctus, felis vel posuere placerat, tellus magna pretium mi, sed
+            varius ex lectus in nisi. Aliquam vestibulum lorem eros, sed pretium
+            lectus posuere eu. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Morbi non odio ac libero rhoncus porta.
+          </p>
+        </div>
+      </div>
+      <div class="ac-dec">
+        <form class="accept-form" action="" method="get" accept-charset="utf-8">
+          <input type="date" placeholder="yyyy-mm-dd" />
+          <input type="time" placeholder="Time" />
+          <button class="btn-accept" type="submit">Book</button>
+        </form>
+        <button class="btn-decline" type="submit">Decline</button>
+      </div>
+    </section>
+    <!-- Project -->
+    <script src="main.js"></script>
+  </body>
+</html>
