@@ -40,13 +40,28 @@
       <div class="form-box">
         <form
           class="form-new-user"
-          action=""
-          method="get"
+          action="/submitAppointment"
+          method="Post"
           accept-charset="utf-8"
         >
-          <input type="text" class="input-name" placeholder="Name" />
-          <input type="text" class="input-user" placeholder="Address" />
-          <input type="emil" class="input-email" placeholder="E-mail" />
+          <input
+            type="text"
+            class="input-name"
+            name="name"
+            placeholder="Name"
+          />
+          <input
+            type="text"
+            class="input-user"
+            name="address"
+            placeholder="Address"
+          />
+          <input
+            type="emil"
+            class="input-email"
+            name="email"
+            placeholder="E-mail"
+          />
           <textarea
             name="purpose"
             placeholder="Purpose of visit"
