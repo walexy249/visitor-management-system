@@ -22,7 +22,7 @@ const visitorSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['pending', 'approved', 'denied'],
+    enum: ['pending', 'approved', 'declined'],
     default: 'pending'
   }
 });

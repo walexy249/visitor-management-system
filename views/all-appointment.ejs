@@ -131,7 +131,10 @@
       </a> -->
       <% if (visitors.length > 0) { %> <% for(i = 0; i < visitors.length ; i++
       ){ %>
-      <a href="" class="content-list pending">
+      <a
+        href="/admin/all-appointment/<%= visitors[i].id %>"
+        class="content-list <%= visitors[i].status %>"
+      >
         <h3 class="content-name"><%= visitors[i].name %></h3>
         <p class="days-ago"><%= time[i] %></p>
       </a>
@@ -179,6 +182,6 @@
     </div>
     --></section>
     <!-- Project -->
-    <script src="main.js"></script>
+    <script src="/main.js"></script>
   </body>
 </html>
