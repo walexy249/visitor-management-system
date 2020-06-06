@@ -5,7 +5,7 @@ const visitorSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  address: {
+  phoneNumber: {
     type: String,
     required: true
   },
@@ -18,11 +18,19 @@ const visitorSchema = new mongoose.Schema({
     required: true
   },
   date: {
-    type: Date,
-    default: Date.now
+    type: Date
+  },
+  status: {
+    type: String,
+    enum: ['pending', 'approved', 'denied'],
+    default: 'pending'
   }
 });
 
+visitorSchema.pre('save', function(next) {
+  this.date = Date.now() + 60 * 60 * 1000;
+  next();
+});
 const Visitor = mongoose.model('Visitor', visitorSchema);
 
 module.exports = Visitor;

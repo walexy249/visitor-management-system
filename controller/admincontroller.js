@@ -2,19 +2,7 @@ const date = require('date-and-time');
 const Visitor = require('./../model/vsitorModel');
 
 exports.getAllAppointmentPage = async (req, res, next) => {
-  const visitors = await Visitor.find();
-
-  // const visitor = await Visitor.findOne({ email: 'lawalolawale32@gmail.com' });
-  // console.log(visitor);
-  // const pattern = date.compile('MMM D');
-  // const day = date.format(visitor.date, pattern).split(' ')[1];
-  // console.log(day);
-
-  // const time = date.format(visitor.date, 'hh:mm A [GMT]Z', true);
-  // const now = new Date();
-  // const time = date.subtract(now, visitor.date).toHours();
-
-  // console.log(time);
+  const visitors = await Visitor.find().sort({ date: -1 });
 
   const pattern = date.compile('MMM D');
   const now = new Date();
@@ -30,7 +18,6 @@ exports.getAllAppointmentPage = async (req, res, next) => {
       time.push(date.format(element.date, pattern));
     }
   });
-  console.log(visitors.length);
 
   res.render('all-appointment', {
     pageTitle: 'All appointment',

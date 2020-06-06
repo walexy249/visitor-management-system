@@ -129,12 +129,14 @@
         <h3 class="content-name">Ramon Rasheed Ishola</h3>
         <p class="days-ago">3 days ago</p>
       </a> -->
-
-      <% for(i = 0; i < visitors.length ; i++ ){ %>
-      <a class="content-list pending">
+      <% if (visitors.length > 0) { %> <% for(i = 0; i < visitors.length ; i++
+      ){ %>
+      <a href="" class="content-list pending">
         <h3 class="content-name"><%= visitors[i].name %></h3>
         <p class="days-ago"><%= time[i] %></p>
       </a>
+      <% } %> <% } else { %>
+      <h3 class="content-name">No Appointment yet</h3>
       <% } %>
 
       <div class="pagination">

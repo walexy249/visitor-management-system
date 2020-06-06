@@ -3,7 +3,7 @@ const Visitor = require('./../model/vsitorModel');
 exports.submitAppointment = async (req, res, next) => {
   await Visitor.create({
     name: req.body.name,
-    address: req.body.address,
+    phoneNumber: req.body.phoneNumber,
     email: req.body.email,
     purpose: req.body.purpose
   });
