@@ -29,3 +29,21 @@ exports.createUser = async (req, res, next) => {
   });
   res.redirect('/admin/login');
 };
+
+exports.Login = async (req, res, next) => {
+  if (!req.body.email || !req.body.password) {
+    console.log('please input your email and password');
+    return res.redirect('/admin/login');
+  }
+  const user = await User.findOne({ email: req.body.email });
+  if (!user) {
+    console.log('invalid email');
+    return res.redirect('/admin/login');
+  }
+  const match = await bcrypt.compare(req.body.password, user.password);
+  if (!match) {
+    console.log('invalid Password');
+    return res.redirect('/admin/login');
+  }
+  res.redirect('/admin/all-appointment');
+};

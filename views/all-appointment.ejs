@@ -10,7 +10,7 @@
     <!-- HTML -->
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/style.css" />
   </head>
 
   <body>
@@ -28,7 +28,7 @@
       </form>
       <a class="profile-link">
         <p class="profile-name">Fatai</p>
-        <img class="profile-img" src="images/profile.jpg" alt="Fatai" />
+        <img class="profile-img" src="/images/profile.jpg" alt="Fatai" />
       </a>
 
       <a class="logout-btn" href="#">Logout</a>
@@ -80,7 +80,7 @@
     <section class="content">
       <h5 class="content-head">All Appointment</h5>
 
-      <a class="content-list approved">
+      <!-- <a class="content-list approved">
         <h3 class="content-name">Ramon Rasheed Ishola</h3>
         <p class="days-ago">3 days ago</p>
       </a>
@@ -128,7 +128,14 @@
       <a class="content-list approved">
         <h3 class="content-name">Ramon Rasheed Ishola</h3>
         <p class="days-ago">3 days ago</p>
+      </a> -->
+
+      <% for(i = 0; i < visitors.length ; i++ ){ %>
+      <a class="content-list pending">
+        <h3 class="content-name"><%= visitors[i].name %></h3>
+        <p class="days-ago"><%= time[i] %></p>
       </a>
+      <% } %>
 
       <div class="pagination">
         <a href="#">&laquo;</a>

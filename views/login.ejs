@@ -39,12 +39,22 @@
       <div class="form-box">
         <form
           class="form-new-user"
-          action=""
-          method="get"
+          action="/admin/login"
+          method="POST"
           accept-charset="utf-8"
         >
-          <input type="emil" class="input-email" placeholder="E-mail" />
-          <input type="password" class="input-pass" placeholder="Password" />
+          <input
+            type="email"
+            name="email"
+            class="input-email"
+            placeholder="E-mail"
+          />
+          <input
+            type="password"
+            name="password"
+            class="input-pass"
+            placeholder="Password"
+          />
 
           <button type="submit" class="btn-newuser">Login</button>
         </form>

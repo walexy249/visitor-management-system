@@ -3,15 +3,19 @@ const { body } = require('express-validator/check');
 
 const User = require('./../model/userModel');
 
-const authcontroller = require('./../controller/authController');
+const authController = require('./../controller/authController');
+const adminController = require('./../controller/adminController');
 
 const router = express.Router();
 
-router.route('/login').get(authcontroller.getLoginPage);
+router
+  .route('/login')
+  .get(authController.getLoginPage)
+  .post(authController.Login);
 
 router
   .route('/create-new-user')
-  .get(authcontroller.createNewUserPage)
+  .get(authController.createNewUserPage)
   .post(
     [
       body('name')
@@ -37,7 +41,8 @@ router
         }
       })
     ],
-    authcontroller.createUser
+    authController.createUser
   );
 
+router.route('/all-appointment').get(adminController.getAllAppointmentPage);
 module.exports = router;
