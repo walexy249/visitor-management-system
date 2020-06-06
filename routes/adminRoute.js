@@ -54,8 +54,6 @@ router
   .post(adminController.DeclineAppointment);
 router.route('/book-appointment').post(adminController.bookAppointment);
 
-router.route('/decline');
-
 router
   .route('/all-appointment/:id')
   .get(adminController.appointmentDetailsPage);
