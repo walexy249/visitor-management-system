@@ -1,4 +1,7 @@
 const path = require('path');
+require('dotenv').config({
+  path: path.join(__dirname, 'config.env')
+});
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -8,8 +11,11 @@ const visitorRoute = require('./routes/visitorRoute');
 const adminRoute = require('./routes/adminRoute');
 
 const app = express();
-
 // set the bodyparser
+// app.use((req, res, next) => {
+//   console.log(path.join(__dirname, 'config.env'));
+//   next();
+// });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -18,7 +24,6 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(visitorRoute);
 app.use('/admin', adminRoute);
 

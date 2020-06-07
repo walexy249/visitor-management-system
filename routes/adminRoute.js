@@ -44,18 +44,10 @@ router
     authController.createUser
   );
 
-router.route('/all-appointment').get(adminController.getAllAppointmentPage);
-router
-  .route('/pending-appointment')
-  .get(adminController.pendingAppointmentPage);
-router
-  .route('/decline-appointment')
-  .get(adminController.DeclineAppointmentPage)
-  .post(adminController.DeclineAppointment);
+router.route('/appointment').get(adminController.getAllAppointmentPage);
 router.route('/book-appointment').post(adminController.bookAppointment);
+router.route('/decline-appointment').post(adminController.declineAppointment);
 
-router
-  .route('/all-appointment/:id')
-  .get(adminController.appointmentDetailsPage);
+router.route('/appointment/:id').get(adminController.appointmentDetailsPage);
 
 module.exports = router;

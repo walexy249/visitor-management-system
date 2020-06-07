@@ -39,16 +39,16 @@
           appointment
         </h3>
         <div class="links">
-          <a class="dashboard-links active" href="#">
+          <a class="dashboard-links active" href="/admin/appointment">
             All
           </a>
-          <a class="dashboard-links" href="#">
+          <a class="dashboard-links" href="/admin/appointment?status=approved">
             Approved
           </a>
-          <a class="dashboard-links" href="#">
+          <a class="dashboard-links" href="/admin/appointment?status=declined">
             Declined
           </a>
-          <a class="dashboard-links" href="#">
+          <a class="dashboard-links" href="/admin/appointment?status=pending">
             Pending
           </a>
         </div>
@@ -105,8 +105,9 @@
           method="POST"
           accept-charset="utf-8"
         >
-          <input type="date" name="date" placeholder="yyyy-mm-dd" />
-          <input type="time" name="time" placeholder="Time" />
+          <input type="date" name="date" placeholder="yyyy-mm-dd" required />
+          <input type="time" name="time" placeholder="Time" required />
+          <input type="hidden" name="id" value="<%= visitor.id %>" />
           <button class="btn-accept" type="submit">Book</button>
         </form>
         <form action="/admin/decline-appointment" method="POST">

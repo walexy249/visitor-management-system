@@ -39,16 +39,16 @@
           appointment
         </h3>
         <div class="links">
-          <a class="dashboard-links active" href="#">
+          <a class="dashboard-links active" href="/admin/appointment">
             All
           </a>
-          <a class="dashboard-links" href="/admin/all-appointment">
+          <a class="dashboard-links" href="/admin/appointment?status=approved">
             Approved
           </a>
-          <a class="dashboard-links" href="/admin/decline-appointment">
+          <a class="dashboard-links" href="/admin/appointment?status=declined">
             Declined
           </a>
-          <a class="dashboard-links" href="/admin/pending-appointment">
+          <a class="dashboard-links" href="/admin/appointment?status=pending">
             Pending
           </a>
         </div>
@@ -132,7 +132,7 @@
       <% if (visitors.length > 0) { %> <% for(i = 0; i < visitors.length ; i++
       ){ %>
       <a
-        href="/admin/all-appointment/<%= visitors[i].id %>"
+        href="/admin/appointment/<%= visitors[i].id %>"
         class="content-list <%= visitors[i].status %>"
       >
         <h3 class="content-name"><%= visitors[i].name %></h3>
