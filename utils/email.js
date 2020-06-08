@@ -6,7 +6,7 @@ module.exports = class Email {
   constructor(user, data) {
     this.to = user.email;
     this.firstName = user.name.split(' ')[0];
-    this.from = `Jonas Schmedtmann <${process.env.EMAIL_FROM}>`;
+    this.from = `Pheity <${process.env.SENDER_EMAIL}>`;
     this.data = data;
   }
 
