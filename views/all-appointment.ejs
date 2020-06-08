@@ -39,16 +39,16 @@
           appointment
         </h3>
         <div class="links">
-          <a class="dashboard-links active" href="/admin/appointment">
+          <a class="dashboard-links active" href="/admin/appointment?page=1">
             All
           </a>
-          <a class="dashboard-links" href="/admin/appointment?status=approved">
+          <a class="dashboard-links" href="/admin/appointment?page=1&status=approved">
             Approved
           </a>
-          <a class="dashboard-links" href="/admin/appointment?status=declined">
+          <a class="dashboard-links" href="/admin/appointment?page=1&status=declined">
             Declined
           </a>
-          <a class="dashboard-links" href="/admin/appointment?status=pending">
+          <a class="dashboard-links" href="/admin/appointment?page=1&status=pending">
             Pending
           </a>
         </div>
@@ -79,56 +79,6 @@
     </section>
     <section class="content">
       <h5 class="content-head">All Appointment</h5>
-
-      <!-- <a class="content-list approved">
-        <h3 class="content-name">Ramon Rasheed Ishola</h3>
-        <p class="days-ago">3 days ago</p>
-      </a>
-
-      <a class="content-list pending">
-        <h3 class="content-name">Ramon Rasheed Ishola</h3>
-        <p class="days-ago">3 days ago</p>
-      </a>
-
-      <a class="content-list approved">
-        <h3 class="content-name">Ramon Rasheed Ishola</h3>
-        <p class="days-ago">3 days ago</p>
-      </a>
-
-      <a class="content-list declined">
-        <h3 class="content-name">Ramon Rasheed Ishola</h3>
-        <p class="days-ago">3 days ago</p>
-      </a>
-
-      <a class="content-list approved">
-        <h3 class="content-name">Ramon Rasheed Ishola</h3>
-        <p class="days-ago">3 days ago</p>
-      </a>
-
-      <a class="content-list pending">
-        <h3 class="content-name">Ramon Rasheed Ishola</h3>
-        <p class="days-ago">3 days ago</p>
-      </a>
-
-      <a class="content-list approved">
-        <h3 class="content-name">Ramon Rasheed Ishola</h3>
-        <p class="days-ago">3 days ago</p>
-      </a>
-
-      <a class="content-list declined">
-        <h3 class="content-name">Ramon Rasheed Ishola</h3>
-        <p class="days-ago">3 days ago</p>
-      </a>
-
-      <a class="content-list declined">
-        <h3 class="content-name">Ramon Rasheed Ishola</h3>
-        <p class="days-ago">3 days ago</p>
-      </a>
-
-      <a class="content-list approved">
-        <h3 class="content-name">Ramon Rasheed Ishola</h3>
-        <p class="days-ago">3 days ago</p>
-      </a> -->
       <% if (visitors.length > 0) { %> <% for(i = 0; i < visitors.length ; i++
       ){ %>
       <a
@@ -138,50 +88,30 @@
         <h3 class="content-name"><%= visitors[i].name %></h3>
         <p class="days-ago"><%= time[i] %></p>
       </a>
+
       <% } %> <% } else { %>
       <h3 class="content-name">No Appointment yet</h3>
       <% } %>
 
       <div class="pagination">
         <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a class="active" href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
-      </div>
 
-      <!--
-    <div class="app-details">
-      <div class="details-head">
-        <img class="details-img" src="images/man.jpeg" alt="Fatai" />
-        <div class="details-info">
-          <h3 class="info-name">Ramon Rasheed Ishola</h3>
-          <p class="info-phone">08024283327</p>
-          <p class="info-email">ramonrash2@gmail.com</p>
-        </div>
+        
+        <% if (all) { %>
+            <% for (i = 1; i <= lastPage; i++) { %>
+            <a class="<%= currentPage == i ? "active" : '' %>" href="/admin/appointment?page=<%= i %>"><%= i %></a>
+            <% } %>
+        <% } else { %>
+          <% var status = visitors[visitors.length -1].status %>
+              <% for (i = 1; i <= lastPage; i++) { %>
+              <a class="<%= currentPage == i ? "active" : '' %>" href="/admin/appointment?page=<%= i %>&status=<%= status %>"><%= i %></a>
+              <% } %>
+        <% } %>
+
+
+        <a href="#">&laquo;</a>
       </div>
-      <div class="details-body">
-        <h4 class="body-head">
-          Reason to meet
-        </h4>
-        <p class="body-para">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper lectus ante, a sagittis est malesuada in. Maecenas luctus, felis vel posuere placerat, tellus magna pretium mi, sed varius ex lectus in nisi. Aliquam vestibulum lorem eros, sed pretium lectus posuere eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non odio ac libero rhoncus porta.
-        </p>
-      </div>
-    </div>
-    <div class="ac-dec">
-      <form class="accept-form" action="" method="get" accept-charset="utf-8">
-        <input type="date" placeholder="yyyy-mm-dd"/>
-        <input type="time" placeholder="Time" />
-        <button class="btn-accept" type="submit">Book</button>
-      </form>
-      <button class="btn-decline" type="submit">Decline</button>
-    </div>
-    --></section>
-    <!-- Project -->
+    </section>
     <script src="/main.js"></script>
   </body>
 </html>

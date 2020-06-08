@@ -1,13 +1,32 @@
+/* eslint-disable vars-on-top */
 const date = require('date-and-time');
 
 const Visitor = require('./../model/vsitorModel');
 const Email = require('./../utils/email');
 
 exports.getAllAppointmentPage = async (req, res, next) => {
-  // console.log(req.query);
+  // eslint-disable-next-line no-var
+  var ItemsPerPage = 2;
+  // eslint-disable-next-line no-var
+  var page;
+  if (!req.query.page) {
+    page = 1;
+  } else {
+    page = +req.query.page;
+  }
   if (!req.query.status) {
-    const visitors = await Visitor.find().sort({ date: -1 });
-
+    const totalNumberOfDocument = await Visitor.find().countDocuments();
+    const totalNumberOfPage = Math.ceil(totalNumberOfDocument / ItemsPerPage);
+    console.log('------------------------');
+    console.log(`page : ${page}`);
+    console.log(`total number of page : ${totalNumberOfPage}`);
+    console.log('------------------------');
+    const visitors = await Visitor.find()
+      .skip((page - 1) * ItemsPerPage)
+      .limit(ItemsPerPage)
+      .sort({ date: -1 });
+    // configuring the exact time when the vistor books the appointment
+    // -------------------------------------------------------
     const pattern = date.compile('MMM D');
     const now = new Date();
     const today = date.format(now, pattern).split(' ')[1];
@@ -21,17 +40,34 @@ exports.getAllAppointmentPage = async (req, res, next) => {
         time.push(date.format(element.date, pattern));
       }
     });
+    // -------------------------------------------------------
 
     res.render('all-appointment', {
       pageTitle: 'All appointment',
       visitors: visitors,
-      time: time
+      time: time,
+      currentPage: page,
+      lastPage: totalNumberOfPage,
+      all: true
     });
   } else {
-    const visitors = await Visitor.find({ status: req.query.status }).sort({
-      date: -1
-    });
+    const totalNumberOfDocument = await Visitor.find({
+      status: req.query.status
+    }).countDocuments();
+    const totalNumberOfPage = Math.ceil(totalNumberOfDocument / ItemsPerPage);
+    console.log('------------------------');
+    console.log(`page : ${page}`);
+    console.log(`total number of page : ${totalNumberOfPage}`);
+    console.log('------------------------');
+    const visitors = await Visitor.find({ status: req.query.status })
+      .skip((page - 1) * ItemsPerPage)
+      .limit(ItemsPerPage)
+      .sort({
+        date: -1
+      });
 
+    // configuring the exact time when the vistor books the appointment
+    // -------------------------------------------------------
     const pattern = date.compile('MMM D');
     const now = new Date();
     const today = date.format(now, pattern).split(' ')[1];
@@ -45,11 +81,14 @@ exports.getAllAppointmentPage = async (req, res, next) => {
         time.push(date.format(element.date, pattern));
       }
     });
-
+    // --------------------------------------------------------
     res.render('all-appointment', {
       pageTitle: 'All appointment',
       visitors: visitors,
-      time: time
+      time: time,
+      lastPage: totalNumberOfPage,
+      currentPage: page,
+      all: false
     });
   }
 };
@@ -74,8 +113,6 @@ exports.declineAppointment = async (req, res, next) => {
   } catch (err) {
     console.log(err);
   }
-
-  res.redirect(`/admin/appointment/${visitor.id}`);
 };
 
 exports.bookAppointment = async (req, res, next) => {
