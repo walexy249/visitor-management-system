@@ -16,7 +16,7 @@
   <body>
     <header class="header">
       <div class="logo-box">
-        <h2 class="logo">Pheity</h2>
+        <a class="logo" href="/">Pheity</a>
       </div>
       <form class="search-box">
         <input
@@ -31,25 +31,24 @@
         <img class="profile-img" src="/images/profile.jpg" alt="Fatai" />
       </a>
 
-      <a class="logout-btn" href="#">Logout</a>
+      <a class="logout-btn" href="/admin/login">Login</a>
     </header>
-
     <section class="sidebar">
       <div class="admin-side">
         <h3 class="dashboard-head">
           appointment
         </h3>
         <div class="links">
-          <a class="dashboard-links active" href="#">
+          <a class="dashboard-links active" href="/admin/appointment">
             All
           </a>
-          <a class="dashboard-links" href="#">
+          <a class="dashboard-links" href="/admin/appointment?status=approved">
             Approved
           </a>
-          <a class="dashboard-links" href="#">
+          <a class="dashboard-links" href="/admin/appointment?status=declined">
             Declined
           </a>
-          <a class="dashboard-links" href="#">
+          <a class="dashboard-links" href="/admin/appointment?status=pending">
             Pending
           </a>
         </div>
@@ -63,7 +62,7 @@
           <a class="dashboard-links" href="#">
             Manage Users
           </a>
-          <a class="dashboard-links" href="#">
+          <a class="dashboard-links" href="/admin/create-new-user">
             Create New User
           </a>
         </div>
@@ -81,6 +80,55 @@
     <section class="content">
       <h5 class="content-head">All Appointment</h5>
 
+      <!-- <a class="content-list approved">
+        <h3 class="content-name">Ramon Rasheed Ishola</h3>
+        <p class="days-ago">3 days ago</p>
+      </a>
+
+      <a class="content-list pending">
+        <h3 class="content-name">Ramon Rasheed Ishola</h3>
+        <p class="days-ago">3 days ago</p>
+      </a>
+
+      <a class="content-list approved">
+        <h3 class="content-name">Ramon Rasheed Ishola</h3>
+        <p class="days-ago">3 days ago</p>
+      </a>
+
+      <a class="content-list declined">
+        <h3 class="content-name">Ramon Rasheed Ishola</h3>
+        <p class="days-ago">3 days ago</p>
+      </a>
+
+      <a class="content-list approved">
+        <h3 class="content-name">Ramon Rasheed Ishola</h3>
+        <p class="days-ago">3 days ago</p>
+      </a>
+
+      <a class="content-list pending">
+        <h3 class="content-name">Ramon Rasheed Ishola</h3>
+        <p class="days-ago">3 days ago</p>
+      </a>
+
+      <a class="content-list approved">
+        <h3 class="content-name">Ramon Rasheed Ishola</h3>
+        <p class="days-ago">3 days ago</p>
+      </a>
+
+      <a class="content-list declined">
+        <h3 class="content-name">Ramon Rasheed Ishola</h3>
+        <p class="days-ago">3 days ago</p>
+      </a>
+
+      <a class="content-list declined">
+        <h3 class="content-name">Ramon Rasheed Ishola</h3>
+        <p class="days-ago">3 days ago</p>
+      </a>
+
+      <a class="content-list approved">
+        <h3 class="content-name">Ramon Rasheed Ishola</h3>
+        <p class="days-ago">3 days ago</p>
+      </a> -->
       <div class="form-box">
         <form
           class="form-new-user"
@@ -115,8 +163,36 @@
           <button type="submit" class="btn-newuser">Create New User</button>
         </form>
       </div>
-    </section>
+
+      <!--
+    <div class="app-details">
+      <div class="details-head">
+        <img class="details-img" src="images/man.jpeg" alt="Fatai" />
+        <div class="details-info">
+          <h3 class="info-name">Ramon Rasheed Ishola</h3>
+          <p class="info-phone">08024283327</p>
+          <p class="info-email">ramonrash2@gmail.com</p>
+        </div>
+      </div>
+      <div class="details-body">
+        <h4 class="body-head">
+          Reason to meet
+        </h4>
+        <p class="body-para">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper lectus ante, a sagittis est malesuada in. Maecenas luctus, felis vel posuere placerat, tellus magna pretium mi, sed varius ex lectus in nisi. Aliquam vestibulum lorem eros, sed pretium lectus posuere eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non odio ac libero rhoncus porta.
+        </p>
+      </div>
+    </div>
+    <div class="ac-dec">
+      <form class="accept-form" action="" method="get" accept-charset="utf-8">
+        <input type="date" placeholder="yyyy-mm-dd"/>
+        <input type="time" placeholder="Time" />
+        <button class="btn-accept" type="submit">Book</button>
+      </form>
+      <button class="btn-decline" type="submit">Decline</button>
+    </div>
+    --></section>
     <!-- Project -->
-    <script src="main.js"></script>
+    <script src="/main.js"></script>
   </body>
 </html>

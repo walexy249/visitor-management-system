@@ -12,6 +12,12 @@ module.exports = class Email {
 
   newTransport() {
     return nodemailer.createTransport({
+      // service: 'gmail',
+      // auth: {
+      //   user: process.env.SENDER_EMAIL,
+      //   pass: process.env.SENDER_PASSWORD
+      // }
+
       host: 'smtp.mailtrap.io',
       port: 2525,
       auth: {
@@ -51,11 +57,11 @@ module.exports = class Email {
 };
 
 // const transporter = nodemailer.createTransport({
-//   service: 'gmail',
-//   auth: {
-//     user: process.env.DATABASE_EMAIL,
-//     pass: process.env.DATABASE_PASSWORD
-//   }
+// service: 'gmail',
+// auth: {
+//   user: process.env.SENDER_EMAIL,
+//   pass: process.env.SENDER_PASSWORD
+// }
 // });
 
 //   const transporter = nodemailer.createTransport({
