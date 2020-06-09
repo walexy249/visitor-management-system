@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+// ------------------------------------
+// visitor model
+// configures the visitor details into a model and store it in the database
+// ------------------------------------
 const visitorSchema = new mongoose.Schema({
   name: {
     type: String,

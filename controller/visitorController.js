@@ -1,5 +1,8 @@
 const Visitor = require('./../model/vsitorModel');
 
+// --------------------------------------------------
+// controller for creating an appointment
+// ---------------------------------------------------
 exports.submitAppointment = async (req, res, next) => {
   await Visitor.create({
     name: req.body.name,
@@ -11,6 +14,9 @@ exports.submitAppointment = async (req, res, next) => {
   res.redirect('/');
 };
 
+// --------------------------------------------------
+// controller for displaying the home page
+// ---------------------------------------------------
 exports.getIndexPage = (req, res, next) => {
   res.render('index');
 };

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-
+// ------------------------------------
+// admin model
+// ------------------------------------
 const userSchema = new mongoose.Schema({
   name: {
     type: String,

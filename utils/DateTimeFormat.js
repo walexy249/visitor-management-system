@@ -1,5 +1,9 @@
 const date = require('date-and-time');
-
+// -------------------------------------
+// This class create the date in two formart
+// july 17 if its more than a day
+// 9:40 if the time is today
+// -------------------------------------
 module.exports = class {
   constructor(arr) {
     this.arr = arr;

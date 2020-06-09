@@ -45,10 +45,10 @@ router
   );
 
 router.route('/appointment').get(adminController.getAllAppointmentPage);
+router.route('/appointment/:id').get(adminController.appointmentDetailsPage);
 router.route('/book-appointment').post(adminController.bookAppointment);
 router.route('/decline-appointment').post(adminController.declineAppointment);
 
-router.route('/appointment/:id').get(adminController.appointmentDetailsPage);
 router.route('/search').post(adminController.searchResult);
 
 module.exports = router;
