@@ -111,3 +111,28 @@ exports.bookAppointment = async (req, res, next) => {
 
   res.redirect(`/admin/appointment/${req.body.id}`);
 };
+
+exports.searchResult = async (req, res, next) => {
+  // eslint-disable-next-line no-var
+  var ItemsPerPage = 2;
+  // eslint-disable-next-line no-var
+  var page;
+  const { search } = req.body;
+  const totalNumberOfDocument = await Visitor.find({
+    name: search
+  }).countDocuments();
+  const totalNumberOfPage = Math.ceil(totalNumberOfDocument / ItemsPerPage);
+  const searchResults = await Visitor.find({
+    name: search
+  });
+  const time = new TimeFormat(searchResults).createExactTime();
+  // console.log(searchResults);
+  res.render('searchResult', {
+    pageTitle: 'All appointment',
+    visitors: searchResults,
+    time: time,
+    currentPage: page,
+    lastPage: totalNumberOfPage,
+    all: true
+  });
+};

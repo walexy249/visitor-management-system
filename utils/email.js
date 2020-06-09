@@ -6,24 +6,24 @@ module.exports = class Email {
   constructor(user, data) {
     this.to = user.email;
     this.firstName = user.name.split(' ')[0];
-    this.from = `Pheity <${process.env.SENDER_EMAIL}>`;
+    this.from = `Visitor Management system <${process.env.SENDER_EMAIL}>`;
     this.data = data;
   }
 
   newTransport() {
     return nodemailer.createTransport({
-      // service: 'gmail',
-      // auth: {
-      //   user: process.env.SENDER_EMAIL,
-      //   pass: process.env.SENDER_PASSWORD
-      // }
-
-      host: 'smtp.mailtrap.io',
-      port: 2525,
+      service: 'gmail',
       auth: {
-        user: process.env.MAILTRAP_USER,
-        pass: process.env.MAILTRAP_PASS
+        user: process.env.SENDER_EMAIL,
+        pass: process.env.SENDER_PASSWORD
       }
+
+      // host: 'smtp.mailtrap.io',
+      // port: 2525,
+      // auth: {
+      //   user: process.env.MAILTRAP_USER,
+      //   pass: process.env.MAILTRAP_PASS
+      // }
     });
   }
 
@@ -55,37 +55,3 @@ module.exports = class Email {
     await this.send('declined', 'Booking Appointment Declined');
   }
 };
-
-// const transporter = nodemailer.createTransport({
-// service: 'gmail',
-// auth: {
-//   user: process.env.SENDER_EMAIL,
-//   pass: process.env.SENDER_PASSWORD
-// }
-// });
-
-//   const transporter = nodemailer.createTransport({
-//     host: 'smtp.mailtrap.io',
-//     port: 2525,
-//     auth: {
-//       user: process.env.MAILTRAP_USER,
-//       pass: process.env.MAILTRAP_PASS
-//     }
-//   });
-
-//   const data = await ejs.renderFile(
-//     path.join(__dirname, '..', 'views/emailTemplate.ejs'),
-//     { visitor, bookTime, bookDate }
-//   );
-
-//   const mailOptions = {
-//     from: `Pheity<${process.env.DATABASE_EMAIL}>`,
-//     to: visitor.email,
-//     subject: 'Booking Appointment Approved',
-//     html: data
-//   };
-
-//   transporter.sendMail(mailOptions, err => {
-//     if (err) return console.log(err);
-//     console.log('Email sent successfully ');
-//   });

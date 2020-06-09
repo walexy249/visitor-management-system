@@ -91,13 +91,12 @@
       </a>
 
       <% } %> <% } else { %>
-      <h3 class="content-name">No Appointment yet</h3>
+      <h3 class="content-name">No Result found</h3>
       <% } %>
 
       <div class="pagination">
         <a href="#">&laquo;</a>
 
-        
         <% if (all) { %>
             <% for (i = 1; i <= lastPage; i++) { %>
             <a class="<%= currentPage == i ? "active" : '' %>" href="/admin/appointment?page=<%= i %>"><%= i %></a>
