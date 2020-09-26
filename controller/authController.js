@@ -61,5 +61,5 @@ exports.Login = async (req, res, next) => {
     console.log('invalid Password');
     return res.redirect('/admin/login');
   }
-  res.redirect('/admin/all-appointment');
+  res.redirect('/admin/appointment');
 };
