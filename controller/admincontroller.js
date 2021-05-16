@@ -14,7 +14,7 @@ const BookingTimeFormat = require('./../utils/EmailTimeformat');
 // --------------------------------------------------------
 exports.getAllAppointmentPage = async (req, res, next) => {
   // eslint-disable-next-line no-var
-  var ItemsPerPage = 2;
+  var ItemsPerPage = 5;
   // eslint-disable-next-line no-var
   var page;
   if (!req.query.page) {

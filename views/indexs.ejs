@@ -16,7 +16,7 @@
   <body>
     <header class="header">
       <div class="logo-box">
-        <a class="logo" href="/">Visitor Management System</a>
+        <a class="logo" href="/">Pheity</a>
       </div>
       <form class="search-box">
         <input
@@ -31,7 +31,7 @@
         <img class="profile-img" src="/images/profile.jpg" alt="Fatai" />
       </a>
 
-      <a class="logout-btn" href="/admin/login">Login</a>
+      <a class="logout-btn" href="#">Logout</a>
     </header>
     <section class="sidebar">
       <div class="admin-side">
@@ -129,40 +129,52 @@
         <h3 class="content-name">Ramon Rasheed Ishola</h3>
         <p class="days-ago">3 days ago</p>
       </a> -->
+
+
       <div class="form-box">
         <form
           class="form-new-user"
-          action="/admin/create-new-user"
-          method="POST"
+          action="/submitAppointment"
+          method="Post"
           accept-charset="utf-8"
         >
           <input
             type="text"
-            name="name"
             class="input-name"
-            placeholder="Fullname"
+            name="name"
+            placeholder="Name"
+          />
+          <input
+            type="text"
+            class="input-user"
+            name="phoneNumber"
+            placeholder="Pnone Number"
           />
           <input
             type="emil"
-            name="email"
             class="input-email"
+            name="email"
             placeholder="E-mail"
           />
-          <input
-            type="password"
-            name="password"
-            class="input-pass"
-            placeholder="Password"
-          />
-          <input
-            type="password"
-            class="input-comfirm"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-          />
-          <button type="submit" class="btn-newuser">Create New User</button>
-        </form>
-      </div>
+          <textarea
+            name="purpose"
+            placeholder="Purpose of visit"
+            id=""
+            cols="63"
+            rows="6"
+          ></textarea>
+          <button type="submit" class="btn-newuser">Create Appointment</button>
+
+      <!-- <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a class="active" href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+      </div> -->
 
       <!--
     <div class="app-details">

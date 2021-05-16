@@ -16,7 +16,7 @@
   <body>
     <header class="header">
       <div class="logo-box">
-        <a class="logo" href="/">Visitor Management System</a>
+        <h2 class="logo">Pheity</h2>
       </div>
       <form class="search-box">
         <input
@@ -62,7 +62,7 @@
           <a class="dashboard-links" href="#">
             Manage Users
           </a>
-          <a class="dashboard-links" href="/admin/create-new-user">
+          <a class="dashboard-links" href="#">
             Create New User
           </a>
         </div>
@@ -132,18 +132,12 @@
       <div class="form-box">
         <form
           class="form-new-user"
-          action="/admin/create-new-user"
+          action="/admin/login"
           method="POST"
           accept-charset="utf-8"
         >
           <input
-            type="text"
-            name="name"
-            class="input-name"
-            placeholder="Fullname"
-          />
-          <input
-            type="emil"
+            type="email"
             name="email"
             class="input-email"
             placeholder="E-mail"
@@ -154,13 +148,8 @@
             class="input-pass"
             placeholder="Password"
           />
-          <input
-            type="password"
-            class="input-comfirm"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-          />
-          <button type="submit" class="btn-newuser">Create New User</button>
+
+          <button type="submit" class="btn-newuser">Login</button>
         </form>
       </div>
 
